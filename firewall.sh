@@ -20,11 +20,30 @@ iptables -A OUTPUT -o lo -j ACCEPT
 # حفظ اتصالات موجود
 iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 
-# اضافه کردن پورت‌های مورد نیاز
-# مثال برای چندین پورت معمول:
 iptables -A INPUT -p tcp --dport 8880 -j ACCEPT
 iptables -A OUTPUT -p tcp --sport 8880 -j ACCEPT
-# ادامه دادن با دیگر پورت‌ها مشابه بالا...
+iptables -A INPUT -p tcp --dport 2052 -j ACCEPT
+iptables -A OUTPUT -p tcp --sport 2052 -j ACCEPT
+iptables -A INPUT -p tcp --dport 2054 -j ACCEPT
+iptables -A OUTPUT -p tcp --sport 2054 -j ACCEPT
+iptables -A INPUT -p tcp --dport 443 -j ACCEPT
+iptables -A OUTPUT -p tcp --sport 443 -j ACCEPT
+iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+iptables -A OUTPUT -p tcp --sport 80 -j ACCEPT
+iptables -A INPUT -p tcp --dport 8080 -j ACCEPT
+iptables -A OUTPUT -p tcp --sport 8080 -j ACCEPT
+iptables -A INPUT -p tcp --dport 2074 -j ACCEPT
+iptables -A OUTPUT -p tcp --sport 2074 -j ACCEPT
+iptables -A INPUT -p tcp --dport 2060 -j ACCEPT
+iptables -A OUTPUT -p tcp --sport 2060 -j ACCEPT
+iptables -A INPUT -p tcp --dport 2059 -j ACCEPT
+iptables -A OUTPUT -p tcp --sport 2059 -j ACCEPT
+iptables -A INPUT -p tcp --dport 4242 -j ACCEPT
+iptables -A OUTPUT -p tcp --sport 4242 -j ACCEPT
+iptables -A INPUT -p tcp --dport 2083 -j ACCEPT
+iptables -A OUTPUT -p tcp --sport 2083 -j ACCEPT
+iptables -A INPUT -p tcp --dport 2053 -j ACCEPT
+iptables -A OUTPUT -p tcp --sport 2053 -j ACCEPT
 
 # مسدود کردن یک آدرس IP خاص
 iptables -A INPUT -s 192.0.2.0/24 -j DROP
